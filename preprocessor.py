@@ -1,36 +1,42 @@
-import tensorflow
-import numpy
-from tensorflow.python.keras.layers import Sequential
-from tensorflow.python.keras.layers import SimpleRNN, Dense
 import re 
 import string 
 import inflect 
+import contractions
 
 # Uses the Inflect library to convert text to numbers
 p = inflect.engine()
 def convert_number_to_text(text):
-    temp_str = text.split()
-    new_string = []
+    temp_str = text.split() # String for holding processed text
+    new_string = [] # List variable backer
+    # The main converter
     for word in temp_str:
+        # If the word is a digit
         if word.isdigit():
             try:
                 temp = p.number_to_words(word)
                 new_string.append(temp)
+            # Exception handling for large numbers
             except Exception as e:
                 new_string.append(word)
+        # Normal course of words
         else:
             new_string.append(word)
+    # Returns the value
     temp_str = ' '.join(new_string)
     return temp_str
 
-def preprocessed_text(dataset):
+# Main preprocessor 
+def preprocess_text(dataset):
     dataset = dataset.lower()
     dataset = dataset.translate(str.maketrans('', '', string.punctuation))
     dataset = convert_number_to_text(dataset)
+    dataset = contractions.fix(dataset)
+    # Returns the list of words
     list_of_words = dataset.split()
     return list_of_words
 
+# Testing! Testing!
 if __name__ == "__main__":
-    preprocessor_sample = "2 people walked into a bar. Manav says hello to me."
-    process_sample = preprocessed_text(preprocessor_sample)
+    preprocessor_sample = "Sometimes I wonder if physics will ever be complete. You shouldn't ever be sure. There are more than 1000 reasons why it won't, any time soon. Sorry, more than 100000000000000000000000000000000."
+    process_sample = preprocess_text(preprocessor_sample)
     print(process_sample)
