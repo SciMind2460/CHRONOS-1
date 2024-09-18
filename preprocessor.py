@@ -1,7 +1,7 @@
 import re 
 import string 
 import inflect 
-import contractions
+from nltk.tokenize import word_tokenize
 
 # Uses the Inflect library to convert text to numbers
 p = inflect.engine()
@@ -30,9 +30,8 @@ def preprocess_text(dataset):
     dataset = dataset.lower()
     dataset = dataset.translate(str.maketrans('', '', string.punctuation))
     dataset = convert_number_to_text(dataset)
-    dataset = contractions.fix(dataset)
     # Returns the list of words
-    list_of_words = dataset.split()
+    list_of_words = word_tokenize(dataset)
     return list_of_words
 
 # Testing! Testing!
