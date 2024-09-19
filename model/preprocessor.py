@@ -27,7 +27,7 @@ def convert_number_to_text(text):
 # Main preprocessor 
 def preprocess_text(dataset):
     dataset = dataset.lower()
-    dataset = re.sub(r'[^\w\s\']', '', dataset)
+    dataset = re.sub(r'[^\w\s\'\-]', '', dataset)
     dataset = convert_number_to_text(dataset)
     # Returns the list of words
     return word_tokenize(dataset)
