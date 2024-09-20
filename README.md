@@ -1,2 +1,3 @@
 # professor.ai
-My small project - creating an AI that will teach people about different subjects such as biology, chemistry, physics, history, geography, economics, the languages, civics, mathematics and much more!
+A small AI applet that I am working on and training myself, with my own model. I intend to use it for training it to teach people, and to mark my foray into development.
+
