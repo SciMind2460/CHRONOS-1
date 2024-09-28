@@ -10,7 +10,7 @@ long_description = (this_directory / "README.md").read_text()
 setup(
     name='chronos_textgen',  # Replace with your desired package name
     version='1.0.0',
-    author='Saarth Karkera',
+    author='Kurt Heiritz',
     author_email='saarthkarkera@gmail.com',
     description='A transformer-based text generation model using the WikiText dataset.',
     long_description=long_description,
