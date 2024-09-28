@@ -1,5 +1,5 @@
 from datasets import load_dataset
-from .chronos import TextGenerationTransformer, preprocess_text
+from chronos import TextGenerationTransformer, preprocess_text
 from transformers import AutoTokenizer
 
 dataset = load_dataset("wikitext", "wikitext-103-v1")
