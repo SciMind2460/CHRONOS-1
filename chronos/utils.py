@@ -34,6 +34,22 @@ def preprocess_text(dataset):
     # Returns the list of words
     return tokenizer.encode(dataset)
 
+def preprocess_function(examples, tokenizer):
+    processed_text = [preprocessor.preprocess_text(text) for text in examples['text']]
+    tokenized = tokenizer(
+        processed_text, 
+        padding='max_length', 
+        truncation=True, 
+        max_length=MAX_LENGTH
+    )
+    return tokenized
+
+def shift_tokens(examples, tokenizer):
+    input_ids = examples['input_ids']
+    labels = [ids[1:] + [tokenizer.pad_token_id] for ids in input_ids]
+    examples['labels'] = labels
+    return examples
+
 # Testing! Testing!
 if __name__ == "__main__":
     preprocessor_sample = "Sometimes I wonder if physics will ever be complete. You shouldn't ever be sure. There are more than 1000 reasons why it won't, any time soon. Sorry, more than 100000000000000000000000000000000."
