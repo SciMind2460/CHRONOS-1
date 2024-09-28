@@ -2,8 +2,7 @@
 
 ## Supported Versions
 
-Use this section to tell people about which versions of your project are
-currently being supported with security updates.
+This is the first version of CHRONOS-1
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -11,8 +10,5 @@ currently being supported with security updates.
 
 ## Reporting a Vulnerability
 
-Use this section to tell people how to report a vulnerability.
+If you want to report a vulnerability, please report an issue at the Issues tab of the chronos1 repository
 
-Tell them where to go, how often they can expect to get an update on a
-reported vulnerability, what to expect if the vulnerability is accepted or
-declined, etc.
