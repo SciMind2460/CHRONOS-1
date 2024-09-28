@@ -1,6 +1,6 @@
 from datasets import load_dataset
-from chronos import preprocess_text
-from transformers import AutoTokenizer
+from chronos import preprocess_function, shift_tokens
+from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModelling
 import torch.nn as nn
 
 class TextGenerationTransformer(nn.Module):
@@ -25,27 +25,7 @@ tokenizer = AutoTokenizer.from_pretrained('gpt2')
 
 pre_trained_model = TextGenerationTransformer(vocab_size, embed_size, hidden_size, num_heads, num_layers)
 
-
-MAX_LENGTH = 128
-
-def preprocess_function(examples):
-    processed_text = [preprocessor.preprocess_text(text) for text in examples['text']]
-    tokenized = tokenizer(
-        processed_text, 
-        padding='max_length', 
-        truncation=True, 
-        max_length=MAX_LENGTH
-    )
-    return tokenized
-
 tokenized_dataset = dataset.map(preprocess_function, batched=True, remove_columns=["text"])
-
-def shift_tokens(examples):
-    input_ids = examples['input_ids']
-    labels = [ids[1:] + [tokenizer.pad_token_id] for ids in input_ids]
-    examples['labels'] = labels
-    return examples
-
 tokenized_dataset = tokenized_dataset.map(shift_tokens, batched=True)
 tokenized_dataset.set_format(type='torch', columns=['input_ids', 'attention_mask', 'labels'])
 
