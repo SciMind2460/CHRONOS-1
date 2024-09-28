@@ -1,6 +1,8 @@
 import re 
 import inflect 
-from nltk.tokenize import word_tokenize
+from transformers import AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained('gpt2')
 
 # Uses the Inflect library to convert text to numbers
 p = inflect.engine()
@@ -30,7 +32,7 @@ def preprocess_text(dataset):
     dataset = re.sub(r'[^\w\s\'\-]', '', dataset)
     dataset = convert_number_to_text(dataset)
     # Returns the list of words
-    return word_tokenize(dataset)
+    return tokenizer.encode(dataset)
 
 # Testing! Testing!
 if __name__ == "__main__":
