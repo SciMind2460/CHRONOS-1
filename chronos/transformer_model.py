@@ -23,7 +23,7 @@ train_data = dataset['train']['text']
 
 tokenizer = AutoTokenizer.from_pretrained('gpt2')
 
-test_model = TextGenerationTransformer(vocab_size, embed_size, hidden_size, num_heads, num_layers)
+pre_trained_model = TextGenerationTransformer(vocab_size, embed_size, hidden_size, num_heads, num_layers)
 
 
 MAX_LENGTH = 128
@@ -70,7 +70,7 @@ data_collator = DataCollatorForLanguageModeling(
 )
 
 trainer = Trainer(
-    model=test_model,
+    model=pre_trained_model,
     args=training_args,
     train_dataset=tokenized_dataset['train'],
     eval_dataset=tokenized_dataset['validation'],
