@@ -1,5 +1,4 @@
-import .preprocessor
-import .transformer_model
+from chronos import preprocessor, transformer_model
 from datasets import load_dataset
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModelling,
 
