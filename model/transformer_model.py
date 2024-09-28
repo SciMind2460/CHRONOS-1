@@ -1,4 +1,4 @@
-import .preprocessor
+import chronos.preprocessor
 import torch.nn as nn
 from datasets import load_dataset
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModelling,
