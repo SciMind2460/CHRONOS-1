@@ -27,7 +27,7 @@ requirements:
         - python=3.12
         - transformers
         - inflect
-        - torch
+        - pytorch
         - numpy=1.26.*
 
 about:
