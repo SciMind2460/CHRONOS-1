@@ -1,7 +1,7 @@
 from datasets import load_dataset
 from chronos import preprocess_function, shift_tokens
 from transformers import AutoTokenizer, Trainer, TrainingArguments, DataCollatorForLanguageModelling
-import pytorch.nn as nn
+import torch.nn as nn
 
 class TextGenerationTransformer(nn.Module):
     def __init__(self, vocab_size, embed_size, num_heads, num_layers):
