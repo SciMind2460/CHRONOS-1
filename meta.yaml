@@ -17,17 +17,13 @@ requirements:
     host:
         - python=3.12  # Specify your desired Python version
         - setuptools
-        - pip
-        - numpy=1.26.*  # Explicitly specify numpy version
     build:
         - python=3.12
-        - pip
-        - numpy=1.26.*
-    run: 
+        run: 
         - python=3.12
         - transformers
         - inflect
-        - pytorch
+        - pytorch 
         - numpy=1.26.*
 
 about:
