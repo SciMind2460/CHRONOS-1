@@ -3,7 +3,6 @@ package:
     version: "1.0.0"
 
 source:
-    git-rev: v1.3.1
     git-url: https://github.com/SciMind2460/chronos
 
 build:
