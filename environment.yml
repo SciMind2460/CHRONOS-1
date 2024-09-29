@@ -1,0 +1,11 @@
+name: chronos-textgen
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - transformers=4.45.1
+  - datasets=3.0.1
+  - inflect=7.4.0
+  - pip:
+    - torch=2.4.1
