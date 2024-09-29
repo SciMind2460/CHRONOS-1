@@ -6,19 +6,29 @@ source:
     git-rev: v1.3.1
     git-url: https://github.com/SciMind2460/chronos
 
+build:
+    number: 0
+    script: |
+        python setup.py install
+        # Install pip dependencies
+        pip install torch
+
 requirements:
     host:
-        - python
+        - python=3.12  # Specify your desired Python version
         - setuptools
+        - pip
+        - numpy=1.26.*  # Explicitly specify numpy version
     build:
-        - python
+        - python=3.12
+        - pip
+        - numpy=1.26.*
     run: 
-        - python
+        - python=3.12
         - transformers
         - inflect
-        - pip
-        - pip:
-            - torch
+        - torch
+        - numpy=1.26.*
 
 about:
     home: https://github.com/SciMind2460/chronos
@@ -30,3 +40,4 @@ about:
 extra:
     recipe-maintainers:
         - SciMind2460
+
