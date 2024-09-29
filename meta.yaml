@@ -15,8 +15,10 @@ requirements:
     run: 
         - python
         - transformers
-        - torch
         - inflect
+        - pip
+        - pip:
+            - torch
 
 about:
     home: https://github.com/SciMind2460/chronos
