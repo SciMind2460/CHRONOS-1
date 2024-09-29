@@ -1,0 +1,30 @@
+package:
+    name: "chronos-textgen"
+    version: "1.0.0"
+
+source:
+    git-rev: v1.3.1
+    git-url: https://github.com/SciMind2460/chronos
+
+requirements:
+    host:
+        - python
+        - setuptools
+    build:
+        - python
+    run: 
+        - python
+        - transformers
+        - torch
+        - inflect
+
+about:
+    home: https://github.com/SciMind2460/chronos
+    license: MIT
+    license-family: MIT
+    license-file: LICENSE
+    summary: "A small AI model that can be used in Python packages through pip and git+ and conda."
+
+extra:
+    recipe-maintainers:
+        - SciMind2460
