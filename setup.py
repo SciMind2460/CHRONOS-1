@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="chronostextgen",
-    version="1.0.0",
+    version="1.0.1",
     description="An repo with a small-scale AI model, pre-trained with the WikiText Dataset",
     author="Kurt Heiritz",
     author_email="saarthkarkera@gmail.com",
