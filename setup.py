@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="chronos-textgen",
+    name="chronostextgen",
     version="1.0.0",
     description="An repo with a small-scale AI model, pre-trained with the WikiText Dataset",
     author="Kurt Heiritz",
