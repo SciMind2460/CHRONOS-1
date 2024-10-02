@@ -15,3 +15,7 @@ Just use the following command in your Python project:
 ```python
 import chronostextgen
 ```
+The generator command is:
+```python
+chronostextgen.generator(your_text, max_length=some_random_length, num_return_sequences=1)
+```
